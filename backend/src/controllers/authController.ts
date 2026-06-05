@@ -70,4 +70,10 @@ const login = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export { register, login };
+const logout = (req: Request, res: Response): void => {
+  res.status(200).json({
+    message: "Logout successfull. Please delete access token on client side.",
+  });
+};
+
+export { register, login, logout };
