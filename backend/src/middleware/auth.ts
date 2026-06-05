@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
 export interface AuthRequest extends Request {
@@ -7,7 +7,7 @@ export interface AuthRequest extends Request {
   };
 }
 
-const authMiddleware = (
+export const authMiddleware = (
   req: AuthRequest,
   res: Response,
   next: NextFunction
@@ -33,5 +33,3 @@ const authMiddleware = (
     res.status(403).json({ message: "Invalid or expired token." });
   }
 };
-
-export { authMiddleware };
