@@ -5,26 +5,26 @@ import jwt from "jsonwebtoken";
 
 const register = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { name, username, password } = req.body;
-    if (!name || !username || !password) {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
       res
         .status(400)
-        .json({ message: "All fields required (name, username, password)." });
+        .json({ message: "All fields required (name, email, password)." });
       return;
     }
 
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       res
         .status(400)
-        .json({ message: `User with username ${username} already exist.` });
+        .json({ message: `User with email ${email} already exist.` });
       return;
     }
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const newUser = new User({ name, username, password: hashedPassword });
+    const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
 
     res
@@ -39,9 +39,9 @@ const register = async (req: Request, res: Response): Promise<void> => {
 
 const login = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
     if (!user) {
       res.status(404).json({ message: "User not found." });
       return;
@@ -61,7 +61,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
     res.status(200).json({
       message: "Login successfull",
       token,
-      user: { id: user._id, name: user.name, username: user.username },
+      user: { id: user._id, name: user.name, email: user.email },
     });
   } catch (error: any) {
     res
