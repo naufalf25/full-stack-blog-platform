@@ -35,28 +35,31 @@ The API consumes and produces JSON. For endpoints that require authentication, y
 `Authorization: Bearer <your_jwt_token>`
 
 1. **User Authentication**
+
   | Method | Endpoint         | Description                                                      | Auth Required |
-  | ------ | ---------------- | ---------------------------------------------------------------- | ------------- |
-  | POST   | `/auth/register` | Register a new user                                              | ❌             |
-  | POST   | `/auth/login`    | Authenticate user and receive a JWT token                        | ❌             |
-  | POST   | `/auth/logout`   | Dummy endpoint for logout (actual logout handled on client-side) | ❌             |
+  | :----- | :--------------- | :--------------------------------------------------------------- | :-----------: |
+  | POST   | `/auth/register` | Register a new user                                              |       ❌       |
+  | POST   | `/auth/login`    | Authenticate user and receive a JWT token                        |       ❌       |
+  | POST   | `/auth/logout`   | Dummy endpoint for logout (actual logout handled on client-side) |       ❌       |
 
 2. **Post Management**
+
   | Method | Endpoint     | Description                        | Auth Required |
-  | ------ | ------------ | ---------------------------------- | ------------- |
-  | GET    | `/posts`     | Retrieve all blog posts            | ❌             |
-  | GET    | `/posts/:id` | Retrieve a specific post by its ID | ❌             |
-  | POST   | `/posts`     | Create a new blog post             | ✅             |
-  | PUT    | `/posts/:id` | Update an existing post            | ✅             |
-  | DELETE | `/posts/:id` | Delete a post                      | ✅             |
+  | :----- | :----------- | :--------------------------------- | :-----------: |
+  | GET    | `/posts`     | Retrieve all blog posts            |       ❌       |
+  | GET    | `/posts/:id` | Retrieve a specific post by its ID |       ❌       |
+  | POST   | `/posts`     | Create a new blog post             |       ✅       |
+  | PUT    | `/posts/:id` | Update an existing post            |       ✅       |
+  | DELETE | `/posts/:id` | Delete a post                      |       ✅       |
 
 3. **Comment Management**
+
   | Method | Endpoint              | Description                                           | Auth Required |
-  | ------ | --------------------- | ----------------------------------------------------- | ------------- |
-  | GET    | `/posts/:id/comments` | Retrieve all comments associated with a specific post | ❌             |
-  | POST   | `/posts/:id/comments` | Add a new comment to a post                           | ✅             |
-  | PUT    | `/comments/:id`       | Edit an existing comment                              | ✅             |
-  | DELETE | `/comments/:id`       | Delete a comment                                      | ✅             |
+  | :----- | :-------------------- | :---------------------------------------------------- | :-----------: |
+  | GET    | `/posts/:id/comments` | Retrieve all comments associated with a specific post |       ❌       |
+  | POST   | `/posts/:id/comments` | Add a new comment to a post                           |       ✅       |
+  | PUT    | `/comments/:id`       | Edit an existing comment                              |       ✅       |
+  | DELETE | `/comments/:id`       | Delete a comment                                      |       ✅       |
 
 ## 🧠 Assumptions & Design Decisions
 
