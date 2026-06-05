@@ -4,10 +4,14 @@ import jwt from "jsonwebtoken";
 export interface AuthRequest extends Request {
   user?: {
     id: string;
-  }
+  };
 }
 
-const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction): void => {
+const authMiddleware = (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+): void => {
   const authHeader = req.header("Authorization");
   const token = authHeader && authHeader.split(" ")[1];
 
@@ -19,13 +23,15 @@ const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction): vo
   try {
     const secret = process.env.JWT_SECRET as string;
     if (!secret) {
-      throw new Error("JWT_SECRET is not defined in environtment variables")
+      throw new Error("JWT_SECRET is not defined in environtment variables");
     }
 
     const decoded = jwt.verify(token, secret) as { id: string };
-    req.user = { id: decoded.id }
-    next()
+    req.user = { id: decoded.id };
+    next();
   } catch (error) {
-    res.status(403).json({ message: "Invalid or expired token." })
+    res.status(403).json({ message: "Invalid or expired token." });
   }
-}
+};
+
+export { authMiddleware };
