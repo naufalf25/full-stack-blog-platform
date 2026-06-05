@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { AuthRequest } from "../middleware/auth.js";
-import Post from "../models/Post.js";
+import { AuthRequest } from "../middleware/auth.ts";
+import Post from "../models/Post.ts";
 
 const createPost = async (req: AuthRequest, res: Response): Promise<void> => {
   try {

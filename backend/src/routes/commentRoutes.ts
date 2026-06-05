@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { authMiddleware } from "../middleware/auth.js";
+import { authMiddleware } from "../middleware/auth.ts";
 import {
   deleteComment,
   updateComment,
-} from "../controllers/CommentController.js";
+} from "../controllers/CommentController.ts";
 
 const router = Router();
 

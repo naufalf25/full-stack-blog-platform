@@ -5,12 +5,12 @@ import {
   getAllPosts,
   getPostById,
   updatePost,
-} from "../controllers/postController.js";
-import { authMiddleware } from "../middleware/auth.js";
+} from "../controllers/postController.ts";
+import { authMiddleware } from "../middleware/auth.ts";
 import {
   createComment,
   getCommentsByPost,
-} from "../controllers/CommentController.js";
+} from "../controllers/CommentController.ts";
 
 const router = Router();
 
