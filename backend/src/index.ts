@@ -23,7 +23,6 @@ app.get("/", (req, res) => {
   res.send("Blog platform API by Muhammad Naufal Farras");
 });
 
-const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI as string;
 
 if (!MONGO_URI) {
@@ -36,9 +35,12 @@ mongoose
   .then(() => {
     console.log("Successfull connect with MongoDB");
 
-    app.listen(PORT, () => {
-      console.log(`Server run on http://localhost:${PORT}`);
-    });
+    if (process.env.NODE_ENV !== "production") {
+      const PORT = process.env.PORT || 5000;
+      app.listen(PORT, () => {
+        console.log(`Server run on http://localhost:${PORT}`);
+      });
+    }
   })
   .catch((error) => {
     console.error("Failed to connect with MongoDB: ", error);
