@@ -19,6 +19,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Blog platform API by Muhammad Naufal Farras");
+});
+
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI as string;
 
