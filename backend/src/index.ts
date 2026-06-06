@@ -19,6 +19,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 
+const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI as string;
 
 if (!MONGO_URI) {
@@ -30,6 +31,10 @@ mongoose
   .connect(MONGO_URI)
   .then(() => {
     console.log("Successfull connect with MongoDB");
+
+    app.listen(PORT, () => {
+      console.log(`Server run on http://localhost:${PORT}`);
+    });
   })
   .catch((error) => {
     console.error("Failed to connect with MongoDB: ", error);
