@@ -150,7 +150,7 @@ function PostDetail() {
                 </Link>
                 <button
                   onClick={handleDeletePost}
-                  className="text-red-600 hover:underline"
+                  className="cursor-pointer text-red-600 hover:underline"
                 >
                   Delete
                 </button>
@@ -158,7 +158,6 @@ function PostDetail() {
             )}
           </div>
         </header>
-
         <div className="leading-relaxed whitespace-pre-wrap text-gray-800">
           {post.content}
         </div>
@@ -183,7 +182,7 @@ function PostDetail() {
             ></textarea>
             <button
               type="submit"
-              className="rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-700"
+              className="cursor-pointer rounded-md border border-blue-600 bg-blue-600 px-4 py-2 font-medium text-white hover:bg-transparent hover:text-blue-600"
             >
               Post Comment
             </button>
@@ -221,13 +220,13 @@ function PostDetail() {
                   <div className="mt-2 flex space-x-2">
                     <button
                       onClick={() => submitEditComment(comment._id)}
-                      className="rounded-md bg-green-600 px-3 py-1 text-sm text-white hover:bg-green-700"
+                      className="cursor-pointer rounded-md border border-green-600 bg-green-600 px-3 py-1 text-sm text-white hover:bg-transparent hover:text-green-600"
                     >
                       Save
                     </button>
                     <button
                       onClick={() => setEditingCommentId(null)}
-                      className="rounded-md bg-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-gray-300"
+                      className="cursor-pointer rounded-md border border-gray-200 bg-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-transparent"
                     >
                       Cancel
                     </button>
@@ -245,13 +244,13 @@ function PostDetail() {
                           setEditingCommentId(comment._id);
                           setEditCommentContent(comment.content);
                         }}
-                        className="text-blue-600 hover:underline"
+                        className="cursor-pointer text-blue-600 hover:underline"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDeleteComment(comment._id)}
-                        className="text-red-600 hover:underline"
+                        className="cursor-pointer text-red-600 hover:underline"
                       >
                         Delete
                       </button>

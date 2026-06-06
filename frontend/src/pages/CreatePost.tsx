@@ -146,17 +146,17 @@ function CreatePost() {
             <button
               type="button"
               onClick={() => navigate(-1)}
-              className="rounded-md bg-gray-100 px-4 py-2 text-gray-700 transition-colors hover:bg-gray-200"
+              className="cursor-pointer rounded-md border border-gray-100 bg-gray-100 px-4 py-2 text-gray-700 transition-colors hover:bg-transparent"
             >
-              Batal
+              Cancel
             </button>
             <button
               type="submit"
               disabled={isLoading}
-              className={`rounded-md px-6 py-2 font-semibold text-white transition-colors ${
+              className={`cursor-pointer rounded-md px-6 py-2 font-semibold text-white transition-colors ${
                 isLoading
                   ? "cursor-not-allowed bg-blue-400"
-                  : "bg-blue-600 hover:bg-blue-700"
+                  : "border border-blue-600 bg-blue-600 hover:bg-transparent hover:text-blue-600"
               }`}
             >
               {isLoading ? "Saving..." : isEditMode ? "Save" : "Publish"}

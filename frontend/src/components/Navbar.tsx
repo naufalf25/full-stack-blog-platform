@@ -28,7 +28,7 @@ function Navbar() {
                 to="/posts/create"
                 className="text-gray-600 hover:text-blue-600"
               >
-                Write Post
+                Create Post
               </Link>
               <Link to="/profile" className="text-gray-600 hover:text-blue-600">
                 Profile
