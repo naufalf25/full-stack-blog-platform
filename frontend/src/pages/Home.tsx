@@ -43,12 +43,10 @@ function Home() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
-      <h1 className="mb-8 text-3xl font-bold text-gray-900">
-        Postingan Terbaru
-      </h1>
+      <h1 className="mb-8 text-3xl font-bold text-gray-900">Latest Posts</h1>
       {posts.length === 0 ? (
         <p className="text-center text-gray-600">
-          Belum ada postingan saat ini.
+          There are no posts at this time.
         </p>
       ) : (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
