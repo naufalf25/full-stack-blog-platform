@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# Blog Application - Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is the Front-End interface for the Full-Stack Blog Application, built to provide a fast, responsive, and modern user experience. It consumes the RESTful API provided by the Back-End service to manage user authentication, blog posts, and comments.
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+*   **Framework:** React 18
+*   **Build Tool:** Vite
+*   **Language:** TypeScript
+*   **Styling:** Tailwind CSS
+*   **Routing:** React Router DOM
+*   **HTTP Client:** Axios (configured with interceptors for JWT token handling)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **User Authentication:** Secure registration and login flow using JWT stored in `localStorage`.
+*   **Responsive Design:** Fully responsive layout that works seamlessly across desktop, tablet, and mobile devices using Tailwind CSS utility classes.
+*   **Post Management:** Users can view all posts on the home page and read full details on a dedicated post page.
+*   **Author Capabilities:** Authenticated users can create new posts, and only authors have the permission to edit or delete their own posts.
+*   **Commenting System:** Logged-in users can engage with content by adding comments. Authors can edit or delete their own comments.
+*   **User Profile:** A dedicated profile page displaying the logged-in user's information and a curated list of posts they have authored.
 
-## Expanding the ESLint configuration
+## 🚀 Setup and Installation (Local Development)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+*   Node.js (v16 or higher recommended)
+*   The **Back-End API** must be running locally (usually on port 5000) for data fetching to work correctly.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installation Steps
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Clone the repository:**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+  ```bash
+    git clone [<your-frontend-repository-link>](https://github.com/naufalf25/full-stack-blog-platform)
+    cd frontend
+  ```
+
+2. **Install dependencies:**
+
+  ```bash
+    npm install
+  ```
+
+3. **Configure API Endpoint:**
+
+  By default, the Axios instance in `src/utils/axios.ts` is configured to point to `http://localhost:5000/api`. If your Back-End runs on a different port, please update the VITE_API_URL in `.env` file.
+
+4. **Start the Development Server:**
+
+  ```bash
+    npm run dev
+  ```
+  The application will typically start on `http://localhost:5173`. Open this URL in your browser to view the app.
+
+## 📁 Project Structure
+
+* `src/components/`: Reusable UI components (e.g., Navbar.tsx).
+* `src/pages/`: Main route components representing different views (Home.tsx, Login.tsx, PostDetail.tsx, etc.).
+* `src/utils/`: Utility functions and configurations (e.g., axios.ts for centralized API requests and token interception).
+* `src/App.tsx`: Main application component handling the React Router setup.
+
+## 🚢 Deployment
+
+This project is optimized for deployment on modern static hosting platforms.
+To build the project for production, run:
+
+```bash
+  npm run build
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The output will be generated in the `dist` folder, which can be directly deployed to platforms like **Vercel**, **Netlify**, etc.
