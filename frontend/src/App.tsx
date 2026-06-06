@@ -4,8 +4,8 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import CreatePost from "./pages/CreatePost";
+import PostDetail from "./pages/PostDetail";
 
-const PostDetail = () => <div className="p-4 text-2xl">Detail Post Page</div>;
 const Profile = () => <div className="p-4 text-2xl">Profile Page</div>;
 
 function App() {

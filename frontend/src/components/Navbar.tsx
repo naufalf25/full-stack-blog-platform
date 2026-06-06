@@ -18,12 +18,10 @@ function Navbar() {
         <Link to="/" className="text-xl font-bold text-blue-600">
           Lunar Blog
         </Link>
-
         <div className="flex items-center space-x-4">
           <Link to="/" className="text-gray-600 hover:text-blue-600">
             Home
           </Link>
-
           {user ? (
             <>
               <Link

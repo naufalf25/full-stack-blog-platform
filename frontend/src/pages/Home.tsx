@@ -46,7 +46,6 @@ function Home() {
       <h1 className="mb-8 text-3xl font-bold text-gray-900">
         Postingan Terbaru
       </h1>
-
       {posts.length === 0 ? (
         <p className="text-center text-gray-600">
           Belum ada postingan saat ini.
@@ -61,18 +60,15 @@ function Home() {
               <h2 className="mb-2 line-clamp-2 text-xl font-semibold text-gray-900">
                 {post.title}
               </h2>
-
               <div className="mb-4 text-sm text-gray-500">
                 By {post.author.name} •{" "}
                 {new Date(post.createdAt).toLocaleDateString("id-ID")}
               </div>
-
               <p className="mb-4 line-clamp-3 grow text-gray-700">
                 {post.content}
               </p>
-
               <Link
-                to={`/post/${post._id}`}
+                to={`/posts/${post._id}`}
                 className="mt-auto inline-flex items-center font-medium text-blue-600 hover:text-blue-800"
               >
                 Read more &rarr;
