@@ -3,9 +3,9 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import CreatePost from "./pages/CreatePost";
 
 const PostDetail = () => <div className="p-4 text-2xl">Detail Post Page</div>;
-const CreatePost = () => <div className="p-4 text-2xl">Create Post Page</div>;
 const Profile = () => <div className="p-4 text-2xl">Profile Page</div>;
 
 function App() {
@@ -18,10 +18,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/post/:id" element={<PostDetail />} />
+            <Route path="/posts/:id" element={<PostDetail />} />
 
-            <Route path="/post/create" element={<CreatePost />} />
-            <Route path="/post/:id/edit" element={<CreatePost />} />
+            <Route path="/posts/create" element={<CreatePost />} />
+            <Route path="/posts/:id/edit" element={<CreatePost />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </main>
