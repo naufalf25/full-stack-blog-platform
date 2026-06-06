@@ -63,7 +63,7 @@ function Home() {
               </h2>
 
               <div className="mb-4 text-sm text-gray-500">
-                Oleh {post.author.name} •{" "}
+                By {post.author.name} •{" "}
                 {new Date(post.createdAt).toLocaleDateString("id-ID")}
               </div>
 
