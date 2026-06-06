@@ -23,6 +23,6 @@ router.delete("/:id", authMiddleware, deletePost);
 
 // Router for Comment
 router.get("/:id/comments", getCommentsByPost);
-router.get("/:id/comments", authMiddleware, createComment);
+router.post("/:id/comments", authMiddleware, createComment);
 
 export default router;
