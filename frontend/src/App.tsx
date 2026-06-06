@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./pages/register";
+import Login from "./pages/Login";
 
 const Home = () => <div className="p-4 text-2xl">Home Page</div>;
-const Login = () => <div className="p-4 text-2xl">Login Page</div>;
-const Register = () => <div className="p-4 text-2xl">Register Page</div>;
 const PostDetail = () => <div className="p-4 text-2xl">Detail Post Page</div>;
 const CreatePost = () => <div className="p-4 text-2xl">Create Post Page</div>;
 const Profile = () => <div className="p-4 text-2xl">Profile Page</div>;
